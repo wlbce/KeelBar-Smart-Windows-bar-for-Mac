@@ -16,6 +16,9 @@ macOS 14+ · English / 中文 / 日本語 / 한국어
 This repository distributes the packaged app only. Source code is not published.  
 本仓库只发布安装包，不公开源代码。
 
+First launch is blocked by macOS until you Control-click → Open (or Privacy & Security → Open Anyway). See the README.
+第一次打开会被系统拦截：请 Control-点 → 打开，或到「隐私与安全性」点「仍要打开」。
+
 <img width="1592" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d8649a3-b7e9-443a-92af-242549dbb2d3" />
 
 <img width="1473" height="1080" alt="image" src="https://github.com/user-attachments/assets/e9627d3a-a88a-4a8b-96f7-aca26676cfaf" />
@@ -89,6 +92,49 @@ A full user guide is inside the app: gear → **User Guide**. It follows the lan
 
 See **Releases** for `KeelBar.zip`. This project does not include source code.
 
+
+KeelBar is ad-hoc signed and not notarized by Apple. macOS will block it the first time you open a copy downloaded from the internet. This is expected.
+**1. Put the app in the right place**
+
+- Unzip `KeelBar.zip`.
+- Move `KeelBar.app` into **Applications**.
+- Do not run it from the zip, the Downloads folder for long, or iCloud Drive / OneDrive.
+
+**2. Open it the first time (pick one)**
+
+**Way A — Control-click**
+
+1. Open **Applications**.
+2. **Control-click** `KeelBar.app` (do not double-click).
+3. Choose **Open**.
+4. In the dialog, choose **Open** again.
+
+**Way B — Privacy & Security (use this on macOS 15 or later if Way A fails)**
+
+1. Double-click `KeelBar.app` once, so macOS records the block.
+2. Open **System Settings → Privacy & Security**.
+3. Scroll to the message that KeelBar was blocked.
+4. Click **Open Anyway**.
+5. Confirm **Open Anyway**, and enter your Mac password if asked.
+
+**3. Allow Accessibility**
+
+1. Open **System Settings → Privacy & Security → Accessibility**.
+2. Click **+** and add `KeelBar.app` (the app itself, not a file inside the bundle).
+3. Turn the switch **on**.
+4. Quit KeelBar fully, then open it again.
+
+**4. If the bar is empty**
+
+- In Accessibility, turn KeelBar **off**, then **on**.
+- Quit KeelBar and reopen it.
+- Confirm you added `KeelBar.app` from **Applications**, not a second copy in Downloads.
+
+**Still blocked?**
+
+- Delete other copies. Keep only `/Applications/KeelBar.app`.
+- In Terminal: `xattr -dr com.apple.quarantine /Applications/KeelBar.app`  
+  Then try Control-click → Open again.
 ---
 
 ## 中文
@@ -154,6 +200,55 @@ Dock 适合打开应用。已经打开的窗口之间切换，用 KeelBar 更直
 
 请到 **Releases** 下载 `KeelBar.zip`。本仓库不提供源代码。
 
+
+
+KeelBar 为本地签名，未经 Apple 公证。从网上下载后，系统第一次会拦截，这是正常现象。
+
+
+**1. 先放到正确位置**
+
+- 解压 `KeelBar.zip`。
+- 把 `KeelBar.app` 拖进 **应用程序**。
+- 不要在压缩包里直接开，也不要从「下载」、iCloud / OneDrive 同步目录里长期运行。
+
+**2. 第一次打开（任选一种）**
+
+**方法 A — Control-点打开**
+
+1. 打开 **应用程序**。
+2. **按住 Control 再点** `KeelBar.app`（不要双击）。
+3. 选 **打开**。
+4. 弹出确认时，再点一次 **打开**。
+
+**方法 B — 隐私与安全性（macOS 15 及以上若方法 A 无效，用这个）**
+
+1. 先双击一次 `KeelBar.app`，让系统记下「已拦截」。
+2. 打开 **系统设置 → 隐私与安全性**。
+3. 往下滚，看到 KeelBar 被拦截的说明。
+4. 点 **仍要打开**。
+5. 再次确认 **仍要打开**；若要求输入本机密码，请输入。
+
+**3. 打开辅助功能权限**
+
+1. 打开 **系统设置 → 隐私与安全性 → 辅助功能**。
+2. 点 **+**，添加 `KeelBar.app`（整个应用，不要选包里面的可执行文件）。
+3. 把开关打开。
+4. 完全退出 KeelBar，再打开一次。
+
+**4. 底栏是空的、看不到窗口**
+
+- 在辅助功能里把 KeelBar **关掉再打开**。
+- 退出 KeelBar，再启动一次。
+- 确认添加的是 **应用程序** 里的那一份，不是「下载」里的另一份。
+
+**仍然打不开？**
+
+- 删掉多余的副本，只保留 `/应用程序/KeelBar.app`。
+- 打开「终端」，执行：  
+  `xattr -dr com.apple.quarantine /Applications/KeelBar.app`  
+  然后再用 Control-点 → 打开。
 ---
+
+
 
 © 2026 Leo Wang. All rights reserved.
