@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/61bcf3a4-570c-4b47-9221-ed3761d4c6c3" /># KeelBar-Smart-Windows-bar-for-Mac
+# KeelBar-Smart-Windows-bar-for-Mac
 Smart windows bar for Mac. One button per window. 
 Topics： macos · taskbar · dock · productivity · windows
 
@@ -7,6 +7,7 @@ Topics： macos · taskbar · dock · productivity · windows
  <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/42b87a6d-1647-4d12-94a0-646a4285fb49" />
 
 
+<img width="2706" height="736" alt="image" src="https://github.com/user-attachments/assets/eb7282be-352d-46ca-ba15-1b39d522ba01" />
 
 A window-based taskbar for macOS.  
 为 Mac 设计的按窗口工作的底栏。
@@ -14,6 +15,14 @@ A window-based taskbar for macOS.
 macOS 14+ · English / 中文 / 日本語 / 한국어  
 This repository distributes the packaged app only. Source code is not published.  
 本仓库只发布安装包，不公开源代码。
+
+<img width="1592" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d8649a3-b7e9-443a-92af-242549dbb2d3" />
+
+<img width="1473" height="1080" alt="image" src="https://github.com/user-attachments/assets/e9627d3a-a88a-4a8b-96f7-aca26676cfaf" />
+
+<img width="436" height="720" alt="image" src="https://github.com/user-attachments/assets/d6359026-ddc6-4e5e-8698-660c813c83ad" />
+
+<img width="990" height="994" alt="image" src="https://github.com/user-attachments/assets/74aa8c04-c92d-462d-92d3-80c00ccf570a" />
 
 ---
 
