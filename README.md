@@ -1,8 +1,12 @@
-# KeelBar-Smart-Windows-bar-for-Mac
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/61bcf3a4-570c-4b47-9221-ed3761d4c6c3" /># KeelBar-Smart-Windows-bar-for-Mac
 Smart windows bar for Mac. One button per window. 
 Topics： macos · taskbar · dock · productivity · windows
 
 # Keelbar：Smart windows bar for Mac
+
+ <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/42b87a6d-1647-4d12-94a0-646a4285fb49" />
+
+
 
 A window-based taskbar for macOS.  
 为 Mac 设计的按窗口工作的底栏。
