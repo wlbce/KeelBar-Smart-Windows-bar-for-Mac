@@ -1,254 +1,193 @@
-# KeelBar-Smart-Windows-bar-for-Mac
-Smart windows bar for Mac. One button per window. 
-Topics： macos · taskbar · dock · productivity · windows
+# KeelBar
 
-# Keelbar：Smart windows bar for Mac
+**给 Mac 加一个真正的任务栏。** 每个打开的窗口一个按钮：点一下前置，再点一下最小化。适合从 Windows 转到 Mac、窗口一多就找不到的人。
 
- <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/42b87a6d-1647-4d12-94a0-646a4285fb49" />
+[English](#english) · [下载](../../releases/latest) · [更新日志](CHANGELOG.md)
 
+![KeelBar 演示](assets/demo.gif)
 
-<img width="2706" height="736" alt="image" src="https://github.com/user-attachments/assets/eb7282be-352d-46ca-ba15-1b39d522ba01" />
+## 功能
 
-A window-based taskbar for macOS.  
-为 Mac 设计的按窗口工作的底栏。
+- **窗口任务条**：屏幕底部列出所有打开的窗口（不是应用），单击前置，再点最小化。
+- **悬停预览**：鼠标停在任务条上，显示窗口缩略图和完整标题。
+- **未读提醒**：Teams、Outlook、微信等有未读时，任务条显示数字角标和橙色流光，点击后停止。可在设置里改为转指定圈数或关闭。
+- **相同应用合并**：可选，每个应用一个按钮，点开再选窗口。
+- **快捷方式**：左侧可固定应用和文件夹，内置“应用程序”“系统设置”“Dock 应用”“最近使用”。
+- **窗口避让**：窗口最大化时自动停在任务栏上方，不被遮挡；双击标题栏可最大化和还原。
+- **多显示器**：每个显示器一条任务栏，也可以只在主显示器显示。
+- **外观**：一行或两行布局，可调背景透明度、字体颜色，可为每个应用单独设置任务条颜色。
+- **其他**：最右侧细条一键最小化全部窗口；可隐藏系统 Dock，退出 KeelBar 后自动恢复。
+- **语言**：English、中文、日本語、한국어。
 
-macOS 14+ · English / 中文 / 日本語 / 한국어  
-This repository distributes the packaged app only. Source code is not published.  
-本仓库只发布安装包，不公开源代码。
+## 系统要求
 
-First launch is blocked by macOS until you Control-click → Open (or Privacy & Security → Open Anyway). See the README.
-第一次打开会被系统拦截：请 Control-点 → 打开，或到「隐私与安全性」点「仍要打开」。
+- macOS 14 Sonoma 或更高版本
+- Apple 芯片（M1 及以后）。暂不支持 Intel Mac。
 
-<img width="1592" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d8649a3-b7e9-443a-92af-242549dbb2d3" />
+## 安装
 
-<img width="1473" height="1080" alt="image" src="https://github.com/user-attachments/assets/e9627d3a-a88a-4a8b-96f7-aca26676cfaf" />
+1. 在 [Releases](../../releases/latest) 下载 `KeelBar-x.x-xxx.zip`，解压。
+2. 把 `KeelBar.app` 拖到「应用程序」文件夹。不要在 iCloud、OneDrive 等同步目录里直接运行。
+3. 双击打开。KeelBar 还没有经过 Apple 公证，第一次打开会被系统拦截：
+   - **macOS 15 及以后**：先双击一次，在提示框里点「完成」；然后打开「系统设置 → 隐私与安全性」，在页面底部找到 KeelBar，点「仍要打开」，输入密码确认。
+   - **macOS 14**：按住 Control 点击 `KeelBar.app`，选择「打开」，再点「打开」。
+4. 按 KeelBar 弹出的提示授予两项权限（见下文）。授权后会自动生效，一般不需要重启。
 
-<img width="436" height="720" alt="image" src="https://github.com/user-attachments/assets/d6359026-ddc6-4e5e-8698-660c813c83ad" />
+> 每次启动时，KeelBar 会先把所有窗口最小化，从任务栏重新开始。窗口不会被关闭，点任务条即可还原。
 
-<img width="990" height="994" alt="image" src="https://github.com/user-attachments/assets/74aa8c04-c92d-462d-92d3-80c00ccf570a" />
+> 也可以下载后在“终端”里执行 `xattr -dr com.apple.quarantine /Applications/KeelBar.app` 解除隔离，再双击打开。
+
+可以用 Releases 页面里的 `SHA256SUMS.txt` 校验下载文件：
+
+```bash
+shasum -a 256 KeelBar-*.zip
+```
+
+## 需要的权限，以及为什么
+
+| 权限 | 用途 |
+|---|---|
+| 辅助功能 | 读取窗口列表和标题，执行前置、最小化、关闭和窗口避让。没有它 KeelBar 无法工作。 |
+| 屏幕与系统音频录制 | 只用于生成悬停预览的窗口缩略图。不授权也能用，只是预览没有画面。 |
+
+在「系统设置 → 隐私与安全性」里，请添加 `KeelBar.app` 本身，不要选应用包里面的可执行文件。
+
+## 隐私
+
+- **完全在本机运行，不联网**，没有统计、没有崩溃上报、没有自动更新检查。
+- 窗口缩略图只在内存中显示，不保存、不上传。
+- 设置保存在本机的 `~/Library/Preferences/com.leowang.keelbar.plist`。
+
+## 价格
+
+**所有功能免费使用。** 如果觉得好用，可以在「设置 → 购买 KeelBar…」里用微信或支付宝买断（9.9 元），获得密钥后会关闭每日一次的购买提醒。不买也不会限制任何功能。
+
+## 常见问题
+
+**任务栏是空的，没有窗口？**
+打开「系统设置 → 隐私与安全性 → 辅助功能」，把 KeelBar 关掉再打开，然后退出 KeelBar 重新打开。
+
+**悬停预览只有标题、没有画面？**
+在「屏幕与系统音频录制」里允许 KeelBar。
+
+**升级后权限失效？**
+在两个权限列表里删除旧的 KeelBar，重新添加新的 `KeelBar.app`。
+
+**系统 Dock 不见了？**
+这是「隐藏系统 Dock」选项的效果，可在设置里关掉；退出 KeelBar 后 Dock 也会自动恢复。
+
+**设置菜单在哪里？**
+KeelBar 没有 Dock 图标。点菜单栏上的 KeelBar 图标，或任务栏右侧的齿轮。
+
+## 卸载
+
+1. 在设置里关闭「登录时打开」，然后退出 KeelBar（系统 Dock 会自动恢复）。
+2. 删除「应用程序」里的 `KeelBar.app`。
+3. 在「系统设置 → 隐私与安全性」的「辅助功能」和「屏幕与系统音频录制」里删除 KeelBar。
+4. 可选：在“终端”里执行 `defaults delete com.leowang.keelbar` 清除设置。
+
+## 反馈
+
+- 问题和建议：请提交 [Issue](../../issues)，附上 macOS 版本、KeelBar 版本（设置 → 关于）和复现步骤。
+- 邮箱：wlbce@126.com
+
+## 版权
+
+© 2026 Leo Wang. All rights reserved. 详见 [LICENSE](LICENSE)。本仓库只提供安装包，不包含源码。
 
 ---
 
-## English
+<a id="english"></a>
 
-### Why KeelBar
+# KeelBar (English)
 
-The macOS Dock is built around **apps**. One icon stands for Chrome, Finder, or Word, no matter how many windows you have open. After you minimize a window, it leaves the desktop. Getting back to *that email* or *that folder* means guessing which Dock icon to click, or searching Mission Control.
+**A real taskbar for your Mac.** One button per open window: click to bring it forward, click again to minimize. Made for people coming from Windows, or anyone who loses windows once there are too many.
 
-KeelBar is built around **windows**. Each open window gets its own button, with a readable title. Click to bring it forward. Click again to minimize. The muscle memory is the same as the Windows taskbar.
+## Features
 
-It is made for people who switched from Windows to Mac, and for anyone who works across many windows every day.
+- **Window taskbar** at the bottom of the screen, one button per window (not per app). Click to bring forward, click again to minimize.
+- **Hover preview** with a window thumbnail and the full title.
+- **Unread alerts**: when Teams, Outlook, WeChat and others have unread items, the button shows a count badge and an orange glow that keeps circling until you click it. You can switch to a fixed number of laps or turn it off.
+- **Combine windows by app** (optional): one button per app; click to pick a window.
+- **Shortcuts** on the left for apps and folders, plus built-in Applications, System Settings, Dock Apps and Recents.
+- **Window fitting**: maximized windows stop above the taskbar instead of hiding behind it. Double-click a title bar to maximize and restore.
+- **Multiple displays**: a bar on every display, or only on the main one.
+- **Appearance**: one or two rows, adjustable transparency and text color, per-app button colors.
+- **Extras**: the thin strip at the far right minimizes all windows. KeelBar can hide the system Dock and restores it when you quit.
+- **Languages**: English, 中文, 日本語, 한국어.
 
-### Dock vs KeelBar
+## Requirements
 
-| | Dock | KeelBar |
-|---|---|---|
-| Unit of work | App | Window |
-| Several Chrome or Finder windows | One icon; the system chooses which window to show | One button per window; the title is visible |
-| After minimize | The window disappears from the desktop | The button stays on the bar; click to restore |
-| Unread mail / chat | A small badge on the Dock icon | The button turns orange; a count appears on the corner |
-| Everyday action | Talk to the app | Click to focus, click again to minimize |
+- macOS 14 Sonoma or later
+- Apple silicon (M1 or later). Intel Macs are not supported yet.
 
-The Dock is still good for launching apps. KeelBar is for switching among the windows you already have open.
+## Install
 
-### Features
+1. Download `KeelBar-x.x-xxx.zip` from [Releases](../../releases/latest) and unzip it.
+2. Move `KeelBar.app` to the Applications folder. Do not run it from iCloud, OneDrive or another synced folder.
+3. Open it. KeelBar is not notarized by Apple yet, so macOS blocks the first launch:
+   - **macOS 15 or later**: open it once and click Done. Then go to System Settings → Privacy & Security, scroll down to KeelBar, click **Open Anyway** and confirm.
+   - **macOS 14**: Control-click `KeelBar.app`, choose Open, then click Open.
+4. Grant the two permissions KeelBar asks for (see below). They take effect automatically, usually without a restart.
 
-- Bottom bar lists every window, not only every app
-- Click to focus; click again to minimize
-- Optional **Combine Windows by App**: one control per app; multiple windows stack and expand as a list
-- Unread state (Dock badge) shown in orange, for apps such as Outlook and Teams
-- Pin apps and folders; default shortcuts for Applications, Dock Apps, and Recents
-- One or two rows; small or large icons
-- Hides the system Dock while running; restores it when you quit
-- Runs entirely on your Mac: no network, no data collection
-- Menu bar extra (no Dock icon of its own)
+> Each time KeelBar starts, it minimizes all windows so you begin from the taskbar. Nothing is closed; click a button to restore a window.
 
-### Requirements
+> Alternatively run `xattr -dr com.apple.quarantine /Applications/KeelBar.app` in Terminal, then open the app.
 
-- macOS 14 or later
-- Accessibility permission (to list windows and bring them forward)
+Verify the download against `SHA256SUMS.txt` on the Releases page:
 
-### Install
+```bash
+shasum -a 256 KeelBar-*.zip
+```
 
-1. Download **KeelBar.zip** from [Releases](../../releases).
-2. Unzip, then move `KeelBar.app` into **Applications**. Do not run it from iCloud Drive or OneDrive.
-3. If macOS says the app cannot be opened: Control-click `KeelBar.app` → **Open**.
-4. Open **System Settings → Privacy & Security → Accessibility** and add `KeelBar.app` (the app itself, not a file inside the bundle).
-5. If the window list is empty: turn KeelBar off and on in Accessibility, then quit and reopen the app.
+## Permissions and why
 
-The current build is ad-hoc signed and not notarized by Apple. The Control-click step is expected on first launch.
+| Permission | Used for |
+|---|---|
+| Accessibility | Reading the window list and titles; bringing forward, minimizing, closing and fitting windows. KeelBar cannot work without it. |
+| Screen & System Audio Recording | Only for hover-preview thumbnails. Optional; without it previews show no image. |
 
-### Use
+In System Settings → Privacy & Security, add `KeelBar.app` itself, not the executable inside the bundle.
 
-- Click a window button to bring it forward; click again to minimize.
-- Right-click for bring to front, minimize or restore, quit, close, or pin.
-- The thin strip at the far right minimizes all windows.
-- Menu bar icon or the gear on the bar: settings, user guide, and language.
-- On first launch, KeelBar minimizes existing windows so the desktop is clear.
+## Privacy
 
-A full user guide is inside the app: gear → **User Guide**. It follows the language you select.
+- **Runs entirely on your Mac and never connects to the network.** No analytics, no crash reporting, no update checks.
+- Window thumbnails are only shown in memory; they are never saved or uploaded.
+- Settings are stored locally in `~/Library/Preferences/com.leowang.keelbar.plist`.
 
-### Download
+## Price
 
-See **Releases** for `KeelBar.zip`. This project does not include source code.
+**Every feature is free to use.** If you like KeelBar, Settings → Buy KeelBar… offers a one-time ¥9.9 license via WeChat Pay or Alipay, which turns off the once-a-day purchase reminder. Nothing is locked without it.
 
+## FAQ
 
-KeelBar is ad-hoc signed and not notarized by Apple. macOS will block it the first time you open a copy downloaded from the internet. This is expected.
-**1. Put the app in the right place**
+**The bar shows no windows.**
+In System Settings → Privacy & Security → Accessibility, turn KeelBar off and on again, then quit and reopen KeelBar.
 
-- Unzip `KeelBar.zip`.
-- Move `KeelBar.app` into **Applications**.
-- Do not run it from the zip, the Downloads folder for long, or iCloud Drive / OneDrive.
+**Hover previews have no image.**
+Allow KeelBar under Screen & System Audio Recording.
 
-**2. Open it the first time (pick one)**
+**Permissions stopped working after an update.**
+Remove the old KeelBar from both permission lists and add the new `KeelBar.app`.
 
-**Way A — Control-click**
+**My Dock disappeared.**
+That is the "Hide System Dock" option. Turn it off in Settings; the Dock also comes back when you quit KeelBar.
 
-1. Open **Applications**.
-2. **Control-click** `KeelBar.app` (do not double-click).
-3. Choose **Open**.
-4. In the dialog, choose **Open** again.
+**Where are the settings?**
+KeelBar has no Dock icon. Use the KeelBar icon in the menu bar or the gear at the right end of the taskbar.
 
-**Way B — Privacy & Security (use this on macOS 15 or later if Way A fails)**
+## Uninstall
 
-1. Double-click `KeelBar.app` once, so macOS records the block.
-2. Open **System Settings → Privacy & Security**.
-3. Scroll to the message that KeelBar was blocked.
-4. Click **Open Anyway**.
-5. Confirm **Open Anyway**, and enter your Mac password if asked.
+1. Turn off "Open at Login" in Settings, then quit KeelBar (the system Dock comes back).
+2. Delete `KeelBar.app` from Applications.
+3. Remove KeelBar from Accessibility and Screen & System Audio Recording in System Settings → Privacy & Security.
+4. Optional: run `defaults delete com.leowang.keelbar` in Terminal to clear settings.
 
-**3. Allow Accessibility**
+## Feedback
 
-1. Open **System Settings → Privacy & Security → Accessibility**.
-2. Click **+** and add `KeelBar.app` (the app itself, not a file inside the bundle).
-3. Turn the switch **on**.
-4. Quit KeelBar fully, then open it again.
+- Bugs and ideas: open an [issue](../../issues) with your macOS version, KeelBar version (Settings → About) and steps to reproduce.
+- Email: wlbce@126.com
 
-**4. If the bar is empty**
+## License
 
-- In Accessibility, turn KeelBar **off**, then **on**.
-- Quit KeelBar and reopen it.
-- Confirm you added `KeelBar.app` from **Applications**, not a second copy in Downloads.
-
-**Still blocked?**
-
-- Delete other copies. Keep only `/Applications/KeelBar.app`.
-- In Terminal: `xattr -dr com.apple.quarantine /Applications/KeelBar.app`  
-  Then try Control-click → Open again.
----
-
-## 中文
-
-### 为什么做 KeelBar
-
-macOS 的 Dock 管的是 **应用**。Chrome、Finder、Word 各一个图标，开了多少窗口都挤在同一个图标里。窗口最小化后会离开桌面，要回到「那封邮件」或「那个文件夹」，只能再点 Dock，或在调度中心里找。
-
-KeelBar 管的是 **窗口**。每个窗口一条，标题看得见。单击前置，再点最小化。手感和 Windows 任务栏一致。
-
-适合从 Windows 转到 Mac 的人，也适合每天要在很多窗口之间切换的人。
-
-### Dock 和 KeelBar
-
-| | 系统 Dock | KeelBar |
-|---|---|---|
-| 工作单位 | 应用 | 窗口 |
-| 多个 Chrome / Finder 窗口 | 一个图标，点下去由系统选择 | 每个窗口一条，标题可见 |
-| 最小化之后 | 窗口从桌面消失 | 底栏按钮还在，再点即可还原 |
-| 未读邮件 / 消息 | Dock 图标上的小角标 | 任务条变橙，角标显示数量 |
-| 日常操作 | 和应用打交道 | 单击前置，再点最小化 |
-
-Dock 适合打开应用。已经打开的窗口之间切换，用 KeelBar 更直接。
-
-### 功能
-
-- 底栏按窗口列出，而不是只按应用
-- 单击前置，再点最小化
-- 可选 **相同应用合并**：每个应用一个入口；多窗口呈叠片，点开后上下列出
-- 未读状态（Dock 角标）显示为橙色，如 Outlook、Teams
-- 可固定应用和文件夹；默认提供「应用程序」「Dock 应用」「最近使用」
-- 单行或两行；小图标或大图标
-- 运行时隐藏系统 Dock，退出后恢复
-- 仅在本机运行：不联网，不收集数据
-- 菜单栏常驻（自身不占用 Dock）
-
-### 系统要求
-
-- macOS 14 或更高版本
-- 需要「辅助功能」权限（用于列出窗口并前置）
-
-### 安装
-
-1. 从 [Releases](../../releases) 下载 **KeelBar.zip**。
-2. 解压后把 `KeelBar.app` 放到 **应用程序**。不要从 iCloud / OneDrive 同步目录里直接运行。
-3. 若系统提示无法打开：按住 Control 点图标 → **打开**。
-4. 打开 **系统设置 → 隐私与安全性 → 辅助功能**，添加 `KeelBar.app`（整个应用，不要选包内的可执行文件）。
-5. 若窗口列表是空的：在辅助功能里关掉再打开 KeelBar，然后退出软件再开一次。
-
-当前构建为本地签名，未经 Apple 公证。第一次打开时，用 Control-点打开是正常步骤。
-
-### 使用
-
-- 单击窗口按钮前置，再点一次最小化。
-- 右键可前置、最小化或还原、退出程序、关闭、固定。
-- 最右端细条会最小化全部窗口。
-- 菜单栏图标或底栏齿轮：设置、使用手册、语言。
-- 启动时会将已有窗口最小化，桌面先留空。
-
-完整说明在软件内：齿轮 → **使用手册**。手册语言随界面语言切换。
-
-### 下载
-
-请到 **Releases** 下载 `KeelBar.zip`。本仓库不提供源代码。
-
-
-
-KeelBar 为本地签名，未经 Apple 公证。从网上下载后，系统第一次会拦截，这是正常现象。
-
-
-**1. 先放到正确位置**
-
-- 解压 `KeelBar.zip`。
-- 把 `KeelBar.app` 拖进 **应用程序**。
-- 不要在压缩包里直接开，也不要从「下载」、iCloud / OneDrive 同步目录里长期运行。
-
-**2. 第一次打开（任选一种）**
-
-**方法 A — Control-点打开**
-
-1. 打开 **应用程序**。
-2. **按住 Control 再点** `KeelBar.app`（不要双击）。
-3. 选 **打开**。
-4. 弹出确认时，再点一次 **打开**。
-
-**方法 B — 隐私与安全性（macOS 15 及以上若方法 A 无效，用这个）**
-
-1. 先双击一次 `KeelBar.app`，让系统记下「已拦截」。
-2. 打开 **系统设置 → 隐私与安全性**。
-3. 往下滚，看到 KeelBar 被拦截的说明。
-4. 点 **仍要打开**。
-5. 再次确认 **仍要打开**；若要求输入本机密码，请输入。
-
-**3. 打开辅助功能权限**
-
-1. 打开 **系统设置 → 隐私与安全性 → 辅助功能**。
-2. 点 **+**，添加 `KeelBar.app`（整个应用，不要选包里面的可执行文件）。
-3. 把开关打开。
-4. 完全退出 KeelBar，再打开一次。
-
-**4. 底栏是空的、看不到窗口**
-
-- 在辅助功能里把 KeelBar **关掉再打开**。
-- 退出 KeelBar，再启动一次。
-- 确认添加的是 **应用程序** 里的那一份，不是「下载」里的另一份。
-
-**仍然打不开？**
-
-- 删掉多余的副本，只保留 `/应用程序/KeelBar.app`。
-- 打开「终端」，执行：  
-  `xattr -dr com.apple.quarantine /Applications/KeelBar.app`  
-  然后再用 Control-点 → 打开。
----
-
-
-
-© 2026 Leo Wang. All rights reserved.
+© 2026 Leo Wang. All rights reserved. See [LICENSE](LICENSE). This repository distributes the app only; source code is not included.
