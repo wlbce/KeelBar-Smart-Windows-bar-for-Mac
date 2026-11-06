@@ -6,6 +6,9 @@
 
 ![KeelBar 演示](assets/demo.gif)
 
+哔哩哔哩视频介绍：
+https://t.bilibili.com/1267609037079314437?share_source=pc_native
+
 ## 功能
 
 - **窗口任务条**：屏幕底部列出所有打开的窗口（不是应用），单击前置，再点最小化。
