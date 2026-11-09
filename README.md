@@ -6,19 +6,19 @@
 
 ![KeelBar 演示](assets/demo.gif)
 
-哔哩哔哩视频介绍：
-https://t.bilibili.com/1267609037079314437?share_source=pc_native
-
 ## 功能
 
 - **窗口任务条**：屏幕底部列出所有打开的窗口（不是应用），单击前置，再点最小化。
-- **悬停预览**：鼠标停在任务条上，显示窗口缩略图和完整标题。
+- **拖动排序**：按住任务条左右拖动调整顺序，同一应用的窗口一起移动，顺序重启后仍然保留。
+- **悬停预览**：鼠标停在任务条上，显示窗口缩略图和完整标题。移进预览后，点右上角 ✕ 直接关闭窗口，点缩略图切换到该窗口。
+- **拖文件切换窗口**：把文件拖到任务条上停留约半秒，对应窗口自动前置，可以直接拖放进去。
 - **未读提醒**：Teams、Outlook、微信等有未读时，任务条显示数字角标和橙色流光，点击后停止。可在设置里改为转指定圈数或关闭。
 - **相同应用合并**：可选，每个应用一个按钮，点开再选窗口。
 - **快捷方式**：左侧可固定应用和文件夹，内置“应用程序”“系统设置”“Dock 应用”“最近使用”。
 - **窗口避让**：窗口最大化时自动停在任务栏上方，不被遮挡；双击标题栏可最大化和还原。
 - **多显示器**：每个显示器一条任务栏，也可以只在主显示器显示。
-- **外观**：一行或两行布局，可调背景透明度、字体颜色，可为每个应用单独设置任务条颜色。
+- **自动隐藏**：可选，鼠标离开后任务栏自动收起，碰到屏幕底边再弹出。
+- **外观**：默认统一的半透明任务条，也可打开「任务条随图标着色」改为彩色；一行或两行布局，可调背景透明度、字体颜色，可为每个应用单独设置任务条颜色。
 - **其他**：最右侧细条一键最小化全部窗口；可隐藏系统 Dock，退出 KeelBar 后自动恢复。
 - **语言**：English、中文、日本語、한국어。
 
@@ -82,6 +82,9 @@ shasum -a 256 KeelBar-*.zip
 **设置菜单在哪里？**
 KeelBar 没有 Dock 图标。点菜单栏上的 KeelBar 图标，或任务栏右侧的齿轮。
 
+**怎么恢复任务条原来的顺序？**
+在设置里选「恢复默认设置…」会清除记住的顺序（其他设置也会一起恢复默认）。
+
 ## 卸载
 
 1. 在设置里关闭「登录时打开」，然后退出 KeelBar（系统 Dock 会自动恢复）。
@@ -109,13 +112,16 @@ KeelBar 没有 Dock 图标。点菜单栏上的 KeelBar 图标，或任务栏右
 ## Features
 
 - **Window taskbar** at the bottom of the screen, one button per window (not per app). Click to bring forward, click again to minimize.
-- **Hover preview** with a window thumbnail and the full title.
+- **Drag to reorder**: hold a button and drag it left or right. Windows of the same app move together, and the order survives restarts.
+- **Hover preview** with a window thumbnail and the full title. Move into the preview and click the ✕ to close the window, or click the thumbnail to switch to it.
+- **Drag-and-hover to switch**: hold dragged files over a button for about half a second and its window comes forward, ready for the drop.
 - **Unread alerts**: when Teams, Outlook, WeChat and others have unread items, the button shows a count badge and an orange glow that keeps circling until you click it. You can switch to a fixed number of laps or turn it off.
 - **Combine windows by app** (optional): one button per app; click to pick a window.
 - **Shortcuts** on the left for apps and folders, plus built-in Applications, System Settings, Dock Apps and Recents.
 - **Window fitting**: maximized windows stop above the taskbar instead of hiding behind it. Double-click a title bar to maximize and restore.
 - **Multiple displays**: a bar on every display, or only on the main one.
-- **Appearance**: one or two rows, adjustable transparency and text color, per-app button colors.
+- **Auto-hide** (optional): the bar slides away when the pointer leaves and returns when you touch the bottom edge of the screen.
+- **Appearance**: calm translucent buttons by default, or turn on "Tint Tasks by App Icon" for colored ones; one or two rows, adjustable transparency and text color, per-app button colors.
 - **Extras**: the thin strip at the far right minimizes all windows. KeelBar can hide the system Dock and restores it when you quit.
 - **Languages**: English, 中文, 日本語, 한국어.
 
@@ -178,6 +184,9 @@ That is the "Hide System Dock" option. Turn it off in Settings; the Dock also co
 
 **Where are the settings?**
 KeelBar has no Dock icon. Use the KeelBar icon in the menu bar or the gear at the right end of the taskbar.
+
+**How do I reset the button order?**
+Choose "Restore Default Settings…" in Settings. This clears the remembered order, along with your other settings.
 
 ## Uninstall
 
